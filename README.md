@@ -23,7 +23,7 @@ This project is available at [Django's](https://www.djangoproject.com/) own webs
 
 * Windows 10
   * VirtualBox 6.1
-    * Ubuntu Ubuntu 20.04.3 LTS
+    * Ubuntu 20.04.3 LTS
 
 * Python 3.8.10
 * Django 3.2.8
