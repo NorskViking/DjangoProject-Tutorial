@@ -1,6 +1,6 @@
 import datetime
 
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.utils import timezone
 from django.urls import reverse
 
@@ -105,7 +105,10 @@ class QuestionDetailViewTests(TestCase):
         """
         The detail view of a question with a pub_date in the past displays the question_text
         """
-        past_question = create_question(question_text="Past Question.", days=-5)
+        #past_question = create_question(question_text='Future question.', days=-5)
+        past_question = create_question('Past Question.', -5)
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
+        #self.assertContains(response, 'Past Question.')
         self.assertContains(response, past_question.question_text)
+        # Gets attributeError couldn't find 'Past Question' in response.
