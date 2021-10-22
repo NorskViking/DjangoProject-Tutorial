@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--
+
 {% extends './base.html' %}
--->
+
 {% load static %}
 
 <html>
@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  {% block content %}
   {% if latest_question_list %}
   <ul>
     {% for question in latest_question_list %}
@@ -23,6 +24,7 @@
     No polls are available.
   </p>
   {% endif %}
+  {% endblock %}
 </body>
 
 </html>

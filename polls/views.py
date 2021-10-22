@@ -33,9 +33,12 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 
+def home(request):
+    template = loader.get_template('polls/home.html')
+    return render(request, 'polls/home.html')
+
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    #output = ', '.join([q.question_text for q in latest_question_list])
     template = loader.get_template('polls/index.html')
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
