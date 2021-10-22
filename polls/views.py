@@ -17,7 +17,8 @@ class AllResults(generic.ListView):
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
 class HomeView(View):
-    template_name = 'polls/home.html'
+    template_name = 'home.html'
+
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'

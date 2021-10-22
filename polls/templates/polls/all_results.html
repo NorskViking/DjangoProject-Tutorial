@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-
 {% extends './base.html' %}
-<html>
 
+<!--
+This creates a table, displaying the questions,
+along with the choices for each question, and
+the votes each choice have recived.
+-->
+
+<html>
 <style>
   .all_results {
     border-collapse: collapse;
@@ -14,9 +19,11 @@
     border: 1px solid #ddd: padding: 8px;
   }
 
-  .all_results tr:nth-child(even){background-color; #f2f2f2}
+  .all_results tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
-  .all_results th {
+  .all_results th, .all_results p {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -60,4 +67,5 @@
 </p>
 {% endif %}
 {% endblock %}
+
 </html>
