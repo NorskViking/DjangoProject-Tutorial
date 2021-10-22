@@ -8,6 +8,14 @@ from django.utils import timezone
 from .models import Question, Choice
 # Create your views here.
 
+class AllResults(generic.ListView):
+    template_name = 'polls/all_results.html'
+    context_object_name = 'latest_question_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+
 class HomeView(generic.DetailView):
     template_name = 'polls/home.html'
 
@@ -36,6 +44,11 @@ class ResultsView(generic.DetailView):
 def home(request):
     template = loader.get_template('polls/home.html')
     return render(request, 'polls/home.html')
+
+def all_results(request):
+    template = loader.get_template('polls/all_results.html')
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/all_results.html', context)
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
