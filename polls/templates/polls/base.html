@@ -37,7 +37,7 @@
   <div class="navbar">
     <a class="active" href="{% url 'polls:index' %}">Home</a>
     <a href="{% url 'polls:index' %}">Polls</a>
-    <a href="all_results.html">Results</a>
+    <a href="{% url 'polls:all_results' %}">Results</a>
   </div>
 </head>
 

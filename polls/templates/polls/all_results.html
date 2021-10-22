@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-{% extends './base.html'}
+{% extends './base.html' %}
 
 {% block content %}
 
@@ -15,11 +15,22 @@
   </tr>
   {% for question in latest_question_list %}
   <tr>
-    <td><a href="{% url 'polls:detail' question.id %}">{{ question.question_text}}</a> </td>
+    <td>{{ question.question_text}}</td>
     <td>
-      {{ choice.choice_text }}
+      {% for choice in question.choice_set.all %}
+      <li>
+        {{ choice.choice_text }}
+        </li>
+
+      {% endfor %}
     </td>
-    <td>{{ choice.votes|pluralize}}</td>
+    {% for choice in question.choice_set.all %}
+        <td>
+          <ul>
+              <td>{{ choice.votes }}</td>
+            </ul>
+          </td>
+    {% endfor %}
   </tr>
   {% endfor %}
 </table>
