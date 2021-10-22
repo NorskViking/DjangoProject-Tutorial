@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+
+<html>
+  {% block head %}
+  <div class="topnav">
+    <a class="active" href="{% url 'polls:index' %}">Home</a>
+    <a href="{% url 'polls:index' %}">Polls</a>
+  </div>
+  {% endblock %}
+</html>
