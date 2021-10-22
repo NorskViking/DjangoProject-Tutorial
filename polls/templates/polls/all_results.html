@@ -8,34 +8,38 @@ the votes each choice have recived.
 -->
 
 <html>
-<style>
-  .all_results {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  .all_results td,
-  .all_results th {
-    border: 1px solid #ddd: padding: 8px;
-  }
-
-  .all_results tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  .all_results th, .all_results p {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-  }
-</style>
 
 {% block content %}
+<style>
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 2px;
+  width: 100px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+  border: 1px solid black;
+}
+
+th, td, p {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  text-align: left;
+}
+
+</style>
 
 {% if latest_question_list %}
 
 <h1>Results</h1>
-<table id="all_results">
+<table>
   <tr>
     <th>Question</th>
     <th>Choices</th>
