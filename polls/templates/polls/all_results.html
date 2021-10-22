@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 
 {% extends './base.html' %}
+<html>
+
+<style>
+  .all_results {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .all_results td,
+  .all_results th {
+    border: 1px solid #ddd: padding: 8px;
+  }
+
+  .all_results tr:nth-child(even){background-color; #f2f2f2}
+
+  .all_results th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+  }
+</style>
 
 {% block content %}
 
@@ -18,19 +39,18 @@
     <td>{{ question.question_text}}</td>
     <td>
       {% for choice in question.choice_set.all %}
-      <li>
+      <p>
         {{ choice.choice_text }}
-        </li>
-
+      </p>
       {% endfor %}
     </td>
-    {% for choice in question.choice_set.all %}
-        <td>
-          <ul>
-              <td>{{ choice.votes }}</td>
-            </ul>
-          </td>
-    {% endfor %}
+    <td>
+      {% for choice in question.choice_set.all %}
+      <p>
+        {{ choice.votes }}
+      </p>
+      {% endfor %}
+    </td>
   </tr>
   {% endfor %}
 </table>
@@ -40,3 +60,4 @@
 </p>
 {% endif %}
 {% endblock %}
+</html>
